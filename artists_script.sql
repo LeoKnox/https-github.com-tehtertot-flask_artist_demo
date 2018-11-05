@@ -28,6 +28,13 @@ CREATE TABLE IF NOT EXISTS `art_works`.`artists` (
   `created_at` TIMESTAMP NULL DEFAULT now(),
   `updated_at` TIMESTAMP NULL DEFAULT now() on update now(),
   PRIMARY KEY (`id`))
+
+LOCK TABLES `artists` WRITE;
+/*!40000 ALTER TABLE `artists` DISABLE KEYS */;
+INSERT INTO `artists` VALUES (1,'Pablo Picasso','1881-10-25','1973-04-08'),(2,'Vincent van Gogh','1853-03-30','1890-07-29'),(3,'Jackson Pollock','1912-01-28','1956-08-11'),(4,'Frida Kahlo','1907-07-06','1954-07-13');
+/*!40000 ALTER TABLE `artists` ENABLE KEYS */;
+UNLOCK TABLES;
+
 ENGINE = InnoDB;
 
 
